@@ -1,6 +1,6 @@
 {
-  "name": "frontend-template",
-  "description": "front end project template with React, Typescript, EsLint, and Webpack",
+  "name": "chord-slots",
+  "description": "Chord sequence randomizer for musical self-challenge",
   "version": "1.0",
   "scripts": {
     "start": "webpack serve --config webpack.dev.config.ts",
