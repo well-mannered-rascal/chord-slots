@@ -28,17 +28,6 @@ const App = () => {
   const [slotsAreSpinning, setSlotsAreSpinning] = useState(false);
   const [slotIntervalId, setSlotIntervalId] = useState<NodeJS.Timer>();
 
-  // const spinSlot = (slotIndex: number): void => {
-  //   const chordIndex: number = slotValues[slotIndex] + 1;
-
-  //   const newSlotValues = {
-  //     ...slotValues,
-  //     [slotIndex]: chordIndex,
-  //   };
-  //   console.log(newSlotValues);
-  //   setSlotValues(newSlotValues);
-  // };
-
   const spinSlots = (): void => {
     const frameValues: Set<number> = new Set();
 
@@ -59,18 +48,26 @@ const App = () => {
       setSlotIntervalId(intervalId);
       spinSlots();
     }
-    console.log(slotsAreSpinning);
   };
 
   return (
-    <div>
-      <div className="container">
+    <div className="container">
+      <div className="slotBox">
         <div className="slot">{chordOptions[slotValues[0]]}</div>
         <div className="slot">{chordOptions[slotValues[1]]}</div>
         <div className="slot">{chordOptions[slotValues[2]]}</div>
         <div className="slot">{chordOptions[slotValues[3]]}</div>
       </div>
-      <button onClick={toggleSpin}>Start/Stop</button>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <button
+          className={`spinButton ${
+            slotsAreSpinning ? 'negative' : 'affirmative'
+          }`}
+          onClick={toggleSpin}
+        >
+          {slotsAreSpinning ? 'Stop' : 'Spin'}
+        </button>
+      </div>
     </div>
   );
 };
